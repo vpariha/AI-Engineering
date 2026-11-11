@@ -1,6 +1,6 @@
 # Brochure Creator
 
-![Screenshot](/Screenshot.png)
+![Screenshot](Screenshot.png)
 
 ## Langsmith Tracing
 
