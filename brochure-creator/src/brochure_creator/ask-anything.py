@@ -1,26 +1,18 @@
 import os
 import gradio as gr
 from dotenv import load_dotenv
-from langchain.chat_models import init_chat_model
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_core.prompts import ChatPromptTemplate
+from brochure_creator.model import get_local_llm_model
 
 load_dotenv(override=True)
-
-LLM_MODEL = os.getenv("LOCAL_LLM_MODEL", "llama3.2:1b")   
-LLM_MODEL_PROVIDER = os.getenv("LOCAL_LLM_MODEL_PROVIDER", "ollama")
-
-model = init_chat_model(
-    LLM_MODEL,
-    model_provider=LLM_MODEL_PROVIDER,
-)
 
 prompt = ChatPromptTemplate.from_messages([
     SystemMessage(content="You are a helpful assistant that answers users questions."),
     HumanMessage(content="{message}"),
 ])
 
-llm_chain = prompt | model
+llm_chain = prompt | get_local_llm_model()
 
 def ask_anything(message: str) -> str:
     response = llm_chain.invoke({"message": message})
