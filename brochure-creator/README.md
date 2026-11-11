@@ -4,7 +4,7 @@
 
 ## Langsmith Tracing
 
-![Screenshot](/Screenshot_Tracing)
+![Screenshot](Screenshot_Tracing.png)
 
 A small Python project that turns a web page into a brochure-style summary using a local LLM via Ollama and a Gradio interface.
 
