@@ -175,6 +175,7 @@ dependencies = [
     { name = "langchain" },
     { name = "langchain-community" },
     { name = "langchain-ollama" },
+    { name = "langsmith" },
 ]
 
 [package.metadata]
@@ -186,6 +187,7 @@ requires-dist = [
     { name = "langchain", specifier = ">=1.4.10" },
     { name = "langchain-community", specifier = ">=0.4.2" },
     { name = "langchain-ollama", specifier = ">=1.1.0" },
+    { name = "langsmith", specifier = ">=0.14.17" },
 ]
 
 [[package]]

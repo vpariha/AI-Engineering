@@ -2,9 +2,10 @@ import gradio as gr
 from langchain_community.document_loaders import WebBaseLoader
 
 from brochure_creator.model import get_local_llm_model
+from langsmith import traceable 
 
-
-def load_web_documents(url: str):
+@traceable()
+def load_web_content(url: str):
     loader = WebBaseLoader(url)
     loaded_documents = loader.load()
     content = ""
@@ -18,8 +19,9 @@ prompt = """
     content: {content}
 """
 
+@traceable()
 def generate_brochure(url: str):
-    content = load_web_documents(url)
+    content = load_web_content(url)
     stream = get_local_llm_model().stream(
             prompt.format(content=content)
     )
