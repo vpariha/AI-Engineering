@@ -1,6 +1,6 @@
 # Brochure Creator
 
-![Screenshot](/Screenshot.png)
+![Screenshot](Screenshot.png)
 
 A small Python project that turns a web page into a brochure-style summary using a local LLM via Ollama and a Gradio interface.
 
